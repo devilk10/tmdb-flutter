@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
-import '../../../../util/constants.dart';
-import '../../models/Movie.dart';
+import 'package:tmdb/core/util/constants.dart';
+import 'package:tmdb/features/home/domain/enitities/movie.dart';
 
 class MovieCard extends StatelessWidget {
-  Movie movie;
+  MovieEntity movie;
 
   MovieCard({required this.movie});
 

@@ -10,7 +10,7 @@ class HomeLoadingState extends HomeState {}
 class HomeErrorState extends HomeState {}
 
 class HomeSuccessState extends HomeState {
-  final List<Movie> movies;
+  final List<MovieEntity> movies;
 
   HomeSuccessState(this.movies);
 }

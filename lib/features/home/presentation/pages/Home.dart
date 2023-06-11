@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tmdb/features/home/bloc/home_bloc.dart';
-import 'package:tmdb/features/home/ui/widgets/movie_card.dart';
+import '../bloc/home_bloc.dart';
+import '../widgets/movie_card.dart';
 
 class Home extends StatefulWidget {
   @override
