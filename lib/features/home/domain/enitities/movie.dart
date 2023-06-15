@@ -4,6 +4,7 @@ class MovieEntity {
   String overview;
   String posterPath;
   double voteAverage;
+  bool liked;
 
   MovieEntity({
     required this.id,
@@ -11,5 +12,10 @@ class MovieEntity {
     required this.overview,
     required this.posterPath,
     required this.voteAverage,
+    required this.liked,
   });
+
+  void toggleLiked() {
+    liked = !liked;
+  }
 }

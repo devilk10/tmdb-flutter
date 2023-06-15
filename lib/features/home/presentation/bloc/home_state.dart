@@ -16,4 +16,11 @@ class HomeSuccessState extends HomeState {
 }
 
 abstract class HomeActionState extends HomeState {}
-// add other action states below and they'll extend HomeActionState
+
+class HomeNavigateWatchlistState extends HomeActionState {}
+
+class HomeLikeButtonClickState extends HomeActionState {
+  HomeLikeButtonClickState(id);
+
+  get id => id;
+}

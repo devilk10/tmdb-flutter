@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tmdb/features/watch_list/presentation/watch_list_page.dart';
 import '../bloc/home_bloc.dart';
 import '../widgets/movie_card.dart';
 
@@ -24,7 +25,13 @@ class _HomeState extends State<Home> {
     return BlocConsumer<HomeBloc, HomeState>(
         bloc: homeBloc,
         buildWhen: (previous, current) => current is! HomeActionState,
-        listener: (context, state) {},
+        listenWhen: (previous, current) => current is HomeActionState,
+        listener: (context, state) {
+          if (state is HomeNavigateWatchlistState) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => WatchList()));
+          }
+        },
         builder: (context, state) {
           switch (state.runtimeType) {
             case HomeLoadingState:
@@ -40,7 +47,7 @@ class _HomeState extends State<Home> {
                   actions: [
                     IconButton(
                         onPressed: () {
-                          print("Watchlist page");
+                          homeBloc.add(HomeWatchListButtonClickEvent());
                         },
                         icon: const Icon(Icons.favorite_border)),
                   ],
@@ -48,7 +55,10 @@ class _HomeState extends State<Home> {
                 body: ListView.builder(
                     itemCount: successState.movies.length,
                     itemBuilder: (context, index) {
-                      return MovieCard(movie: successState.movies[index]);
+                      return MovieCard(
+                        movie: successState.movies[index],
+                        homeBloc: homeBloc,
+                      );
                     }),
               );
             case HomeErrorState:

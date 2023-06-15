@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tmdb/core/util/constants.dart';
 import 'package:tmdb/features/home/domain/enitities/movie.dart';
+import 'package:tmdb/features/home/presentation/bloc/home_bloc.dart';
 
 class MovieCard extends StatelessWidget {
   MovieEntity movie;
+  HomeBloc homeBloc;
 
-  MovieCard({required this.movie});
+  MovieCard({required this.movie, required this.homeBloc});
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +47,15 @@ class MovieCard extends StatelessWidget {
                 ],
               ),
             ),
-            const Expanded(
-              flex: 1,
-              child: Icon(Icons.favorite_border),
-            ),
+            Expanded(
+                flex: 1,
+                child: GestureDetector(
+                    child: movie.liked
+                        ? const Icon(Icons.favorite_sharp)
+                        : const Icon(Icons.favorite_border),
+                    onTap: () {
+                      homeBloc.add(HomeLikeButtonClickEvent(id: movie.id));
+                    })),
           ],
         ));
   }
