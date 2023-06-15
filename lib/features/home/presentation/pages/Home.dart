@@ -56,9 +56,12 @@ class _HomeState extends State<Home> {
                     itemCount: successState.movies.length,
                     itemBuilder: (context, index) {
                       return MovieCard(
-                        movie: successState.movies[index],
-                        homeBloc: homeBloc,
-                      );
+                          movie: successState.movies[index],
+                          onLiked: () {
+                            homeBloc.add(HomeLikeButtonClickEvent(
+                                id: successState.movies[index].id));
+                            setState(() {});
+                          });
                     }),
               );
             case HomeErrorState:

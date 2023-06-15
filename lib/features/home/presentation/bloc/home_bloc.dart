@@ -50,6 +50,5 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
       return e;
     }).toList();
-    emit(HomeSuccessState(movies));
   }
 }
