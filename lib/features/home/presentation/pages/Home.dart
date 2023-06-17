@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
             case HomeErrorState:
               return const Text("Error");
             default:
-              return const Scaffold(
+              return Scaffold(
                   body: Center(
                 child: Text("Initial state"),
               ));
