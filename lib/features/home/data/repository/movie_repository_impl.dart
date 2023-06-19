@@ -14,4 +14,9 @@ class MovieRepositoryImpl extends MovieRepository {
       throw Exception('Failed to get movies: $exception');
     }
   }
+
+  @override
+  void addFavouriteMovie(MovieEntity movieEntity) async {
+    await Future.delayed(const Duration(seconds: 3));
+  }
 }

@@ -1,7 +1,6 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:tmdb/features/home/data/models/movie.dart';
+import 'package:tmdb/core/data/models/models/movie.dart';
 
 class MovieApiService {
   Future<List<Movie>> fetchPopularMovies(String apiKey) async {

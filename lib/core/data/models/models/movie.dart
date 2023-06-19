@@ -1,4 +1,4 @@
-import 'package:tmdb/features/home/domain/enitities/movie.dart';
+import 'package:tmdb/core/domain/enitities/movie.dart';
 
 class Movie extends MovieEntity {
   Movie(

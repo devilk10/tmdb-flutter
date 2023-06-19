@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:tmdb/core/domain/enitities/movie.dart';
 import 'package:tmdb/features/home/data/repository/movie_repository_impl.dart';
-import 'package:tmdb/features/home/domain/enitities/movie.dart';
 import 'package:tmdb/features/home/domain/repository/movie_repository.dart';
 
 part 'home_event.dart';
@@ -46,6 +46,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       HomeLikeButtonClickEvent event, Emitter<HomeState> emit) async {
     movies = movies.map((e) {
       if (e.id == event.id) {
+        movieRepository.addFavouriteMovie(e);
         e.toggleLiked();
       }
       return e;

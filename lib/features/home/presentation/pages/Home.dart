@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tmdb/features/watch_list/presentation/watch_list_page.dart';
+
 import '../bloc/home_bloc.dart';
 import '../widgets/movie_card.dart';
 
@@ -67,7 +68,7 @@ class _HomeState extends State<Home> {
             case HomeErrorState:
               return const Text("Error");
             default:
-              return Scaffold(
+              return const Scaffold(
                   body: Center(
                 child: Text("Initial state"),
               ));
