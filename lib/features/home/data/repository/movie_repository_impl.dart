@@ -1,5 +1,6 @@
+import 'package:tmdb/core/data/models/models/movie.dart';
+import 'package:tmdb/core/domain/enitities/movie.dart';
 import 'package:tmdb/features/home/data/data_sources/remote/movie_api_service.dart';
-import 'package:tmdb/features/home/data/models/movie.dart';
 import 'package:tmdb/features/home/domain/repository/movie_repository.dart';
 
 class MovieRepositoryImpl extends MovieRepository {
